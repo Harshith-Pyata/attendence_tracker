@@ -91,11 +91,17 @@ class BottomNav extends StatefulWidget {
 class _BottomNavState extends State<BottomNav> {
   int _currentIndex = 0;
 
-  final List<Widget> _screens = const [
-    HomeScreen(),
-    ScheduleScreen(),
-    NotificationScreen(),
-    ProfileScreen(),
+  late final List<Widget> _screens =  [
+    HomeScreen(
+      onProfileTap: (){
+        setState((){
+          _currentIndex=3;
+        });
+      },
+    ),
+    const ScheduleScreen(),
+    const NotificationScreen(),
+    const ProfileScreen(),
   ];
 
   @override
